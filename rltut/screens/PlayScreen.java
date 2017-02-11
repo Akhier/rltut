@@ -37,6 +37,17 @@ public class PlayScreen implements Screen {
 		terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
 	}
 
+	private void displayTiles(AsciiPanel terminal, int left, int top) {
+		for (int x = 0; x < screenWidth; x++) {
+			for (int y = 0; y < screenHeight; y++) {
+				int wx = x + left;
+				int wy = y + top;
+				
+				terminal.write(world.glyph(wx, wy), x, y, world.color(wx, wy));
+			}
+		}
+	}
+
 	public Screen respondToUserInput(KeyEvent key) {
 		switch (key.getKeyCode()) {
 		case KeyEvent.VK_ESCAPE: return new LoseScreen();
