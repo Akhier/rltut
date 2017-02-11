@@ -2,8 +2,22 @@ package rltut.screens;
 
 import java.awt.event.KeyEvent;
 import asciiPanel.AsciiPanel;
+import rltut.World;
+import rltut.WorldBuilder;
 
 public class PlayScreen implements Screen {
+	private World world;
+	private int centerX;
+	private int centerY;
+	private int screenWidth;
+	private int screenHeight;
+
+	public PlayScreen() {
+		screenWidth = 80;
+		screenHeight = 21;
+		createWorld();
+	}
+
 	public void displayOutput(AsciiPanel terminal) {
 		terminal.write("You are having fun.", 1, 1);
 		terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
