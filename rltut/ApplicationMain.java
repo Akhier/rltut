@@ -9,10 +9,10 @@ import rltut.screens.StartScreen;
 
 public class ApplicationMain extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 3390957339358612373L;
-	
+
 	private AsciiPanel terminal;
 	private Screen screen;
-	
+
 	public ApplicationMain() {
 		super();
 		terminal = new AsciiPanel();
@@ -22,20 +22,20 @@ public class ApplicationMain extends JFrame implements KeyListener {
 		addKeyListener(this);
 		repaint();
 	}
-	
+
 	public void repaint() {
 		terminal.clear();
 		screen.displayOutput(terminal);
 		super.repaint();
 	}
-	
+
 	public void keyPressed(KeyEvent e) {
 		screen = screen.respondToUserInput(e);
 		repaint();
 	}
-	
+
 	public void keyReleased(KeyEvent e) { }
-	
+
 	public void keyTyped(KeyEvent e) { }
 
 	public static void main(String[] args) {
