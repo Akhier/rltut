@@ -33,7 +33,13 @@ public class PlayScreen implements Screen {
 	}
 
 	public void displayOutput(AsciiPanel terminal) {
-		terminal.write("You are having fun.", 1, 1);
+		int left = getScrollX();
+		int top = getScrollY();
+
+		displayTiles(terminal, left, top);
+
+		terminal.write('X', centerX - left, centerY - top);
+
 		terminal.writeCenter("-- press [escape] to lose or [enter] to win --", 22);
 	}
 
