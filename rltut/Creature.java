@@ -14,6 +14,9 @@ public class Creature {
 	private Color color;
 	public Color color() { return color; }
 	
+	private CreatureAi ai;
+	public void setCreatureAi (CreatureAi ai) { this.ai = ai }
+	
 	public Creature(World world, char glyph, Color color) {
 		this.world = world;
 		this.glyph = glyph;
