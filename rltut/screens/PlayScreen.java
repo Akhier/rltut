@@ -54,6 +54,11 @@ public class PlayScreen implements Screen {
 		}
 	}
 
+	private void scrollBy(int mx, int my) {
+		centerX = Math.max(0, Math.min(centerX + mx, world.width() - 1));
+		centerY = Math.max(0, Math.min(centerY + my, world.height() - 1));
+	}
+
 	public Screen respondToUserInput(KeyEvent key) {
 		switch (key.getKeyCode()) {
 		case KeyEvent.VK_ESCAPE: return new LoseScreen();
