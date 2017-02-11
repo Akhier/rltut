@@ -17,6 +17,12 @@ public class PlayScreen implements Screen {
 		screenHeight = 21;
 		createWorld();
 	}
+	
+	private void createWorld() {
+		world = new WorldBuilder(90, 31)
+				.makeCaves()
+				.build();
+	}
 
 	public void displayOutput(AsciiPanel terminal) {
 		terminal.write("You are having fun.", 1, 1);
