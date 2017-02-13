@@ -24,10 +24,20 @@ public class Creature {
 	}
 
 	public void moveBy(int mx, int my) {
-		ai.onEnter(x + mx, y + my, world.tile(x + mx, y + my));
+		Creature other = world.creature(x + mx, y + my);
+
+		if (other == null){
+			ai.onEnter(x + mx, y + my, world.tile(x + mx, y + my));
+		} else {
+			attack(other);
+		}
 	}
 
 	public void dig(int wx, int wy) {
 		world.dig(wx, wy);
+	}
+
+	public void attack(Creature other) {
+		world.remove(other);
 	}
 }

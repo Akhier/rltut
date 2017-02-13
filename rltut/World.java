@@ -52,6 +52,10 @@ public class World {
 		}
 	}
 
+	public void remove(Creature other) {
+		creatures.remove(other);
+	}
+
 	public void addAtEmptyLocation(Creature creature) {
 		int x;
 		int y;
