@@ -33,11 +33,19 @@ public class Creature {
 		}
 	}
 
+	public void attack(Creature other) {
+		world.remove(other);
+	}
+
 	public void dig(int wx, int wy) {
 		world.dig(wx, wy);
 	}
 
-	public void attack(Creature other) {
-		world.remove(other);
+	public void update() {
+		ai.onUpdate();
+	}
+
+	public boolean canEnter(int wx, int wy) {
+		return world.tile(wx, wy).isGround() && world.creature(wx, wy) == null;
 	}
 }

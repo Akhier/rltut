@@ -31,7 +31,7 @@ public class PlayScreen implements Screen {
 	}
 
 	private void createWorld() {
-		world = new WorldBuilder(90, 31)
+		world = new WorldBuilder(90, 32)
 				.makeCaves()
 				.build();
 	}
@@ -88,6 +88,8 @@ public class PlayScreen implements Screen {
 		case KeyEvent.VK_B: player.moveBy(-1, 1); break;
 		case KeyEvent.VK_N: player.moveBy(1, 1); break;
 		}
+
+		world.update();
 		
 		return this;
 	}

@@ -52,10 +52,6 @@ public class World {
 		}
 	}
 
-	public void remove(Creature other) {
-		creatures.remove(other);
-	}
-
 	public void addAtEmptyLocation(Creature creature) {
 		int x;
 		int y;
@@ -67,5 +63,16 @@ public class World {
 		creature.x = x;
 		creature.y = y;
 		creatures.add(creature);
+	}
+
+	public void update() {
+		List<Creature> toUpdate = new ArrayList<Creature>(creatures);
+		for (Creature creature : toUpdate) {
+			creature.update();
+		}
+	}
+
+	public void remove(Creature other) {
+		creatures.remove(other);
 	}
 }
