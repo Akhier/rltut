@@ -57,9 +57,10 @@ public class World {
 		do {
 			x = (int)(Math.random() * width);
 			y = (int)(Math.random() * height);
-		} while (!tile(x,y).isGround());
+		} while (!tile(x,y).isGround() || creature(x, y) != null);
 
 		creature.x = x;
 		creature.y = y;
+		creatures.add(creature);
 	}
 }
