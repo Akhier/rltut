@@ -19,7 +19,15 @@ public class PlayScreen implements Screen {
 		createWorld();
 
 		CreatureFactory creatureFactory = new CreatureFactory(world);
+		createCreatures(creatureFactory);
+	}
+
+	private void createCreatures(CreatureFactory creatureFactory) {
 		player = creatureFactory.newPlayer();
+		
+		for (int i = 0; i < 8; i++) {
+			creatureFactory.newFungus();
+		}
 	}
 
 	private void createWorld() {
