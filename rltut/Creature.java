@@ -7,7 +7,7 @@ public class Creature {
 
 	public int x;
 	public int y;
-	
+
 	private char glyph;
 	public char glyph() { return glyph; }
 
@@ -17,10 +17,26 @@ public class Creature {
 	private CreatureAi ai;
 	public void setCreatureAi (CreatureAi ai) { this.ai = ai; }
 
-	public Creature(World world, char glyph, Color color) {
+	private int maxHp;
+	public int maxHp() { return maxHp; }
+
+	private int hp;
+	public int hp() { return hp; }
+
+	private int attackValue;
+	public int attackValue() { return attackValue; }
+
+	private int defenseValue;
+	public int defenseValue() { return defenseValue; }
+
+	public Creature(World world, char glyph, Color color, int maxHp, int attack, int defense) {
 		this.world = world;
 		this.glyph = glyph;
 		this.color = color;
+		this.maxHp = maxHp;
+		this.hp = maxHp;
+		this.attackValue = attack;
+		this.defenseValue = defense;
 	}
 
 	public void moveBy(int mx, int my) {
