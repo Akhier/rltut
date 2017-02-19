@@ -73,4 +73,8 @@ public class Creature {
 	public boolean canEnter(int wx, int wy) {
 		return world.tile(wx, wy).isGround() && world.creature(wx, wy) == null;
 	}
+
+	public void notify(String message, Object ... params) {
+		ai.onNotify(String.format(message, params));
+	}
 }

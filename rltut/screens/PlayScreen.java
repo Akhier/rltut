@@ -6,16 +6,20 @@ import rltut.Creature;
 import rltut.CreatureFactory;
 import rltut.World;
 import rltut.WorldBuilder;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PlayScreen implements Screen {
 	private World world;
 	private Creature player;
 	private int screenWidth;
 	private int screenHeight;
+	private List<String> messages;
 
 	public PlayScreen() {
 		screenWidth = 80;
 		screenHeight = 21;
+		messages = new ArrayList<String>();
 		createWorld();
 
 		CreatureFactory creatureFactory = new CreatureFactory(world);
@@ -23,7 +27,7 @@ public class PlayScreen implements Screen {
 	}
 
 	private void createCreatures(CreatureFactory creatureFactory) {
-		player = creatureFactory.newPlayer();
+		player = creatureFactory.newPlayer(messages);
 		
 		for (int i = 0; i < 8; i++) {
 			creatureFactory.newFungus();
@@ -39,7 +43,7 @@ public class PlayScreen implements Screen {
 	public int getScrollX() {
 		return Math.max(0, Math.min(player.x - screenWidth / 2, world.width() - screenWidth));
 	}
-	
+
 	public int getScrollY() {
 		return Math.max(0, Math.min(player.y - screenHeight / 2, world.height() - screenHeight));
 	}
