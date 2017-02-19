@@ -53,6 +53,7 @@ public class PlayScreen implements Screen {
 		int top = getScrollY();
 
 		displayTiles(terminal, left, top);
+		displayMessages(terminal, messages);
 
 		terminal.write(player.glyph(), player.x - left, player.y - top, player.color());
 
@@ -60,6 +61,14 @@ public class PlayScreen implements Screen {
 
 		String stats = String.format(" %3d/%3d hp", player.hp(), player.maxHp());
 		terminal.write(stats, 1, 23);
+	}
+
+	private void displayMessages(AsciiPanel terminal, List<String> messages) {
+		int top = screenHeight - messages.size();
+		for (int i = 0; i < messages.size(); i++) {
+			terminal.writeCenter(messages.get(i), top + i);
+		}
+		messages.clear();
 	}
 
 	private void displayTiles(AsciiPanel terminal, int left, int top) {
