@@ -34,7 +34,16 @@ public class Creature {
 	}
 
 	public void attack(Creature other) {
-		world.remove(other);
+		int amount = Math.max(0, attackValue() - other.defenseValue());
+		amount = (int)(Math.random() * amount) + 1;
+		other.modifyHp(-amount);
+	}
+
+	public void modifyHp(int amount){
+		hp += amount;
+		if (hp < 1){
+			world.remove(this);
+		}
 	}
 
 	public void dig(int wx, int wy) {
