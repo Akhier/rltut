@@ -23,6 +23,8 @@ public class FungusAi extends CreatureAi {
 			return;
 		}
 
+		creature.doAction("spawn a child");
+
 		Creature child = factory.newFungus();
 		child.x = x;
 		child.y = y;
